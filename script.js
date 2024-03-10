@@ -6,6 +6,7 @@ let json = JSON.parse(localStorage.getItem('todos'));
 // console.log(json);
 
 let index = 0;
+let jsonindex = null;
 let str = ``;
 let findData;
 let edit = false;
@@ -29,8 +30,8 @@ document.querySelector('button').addEventListener('click', (e) => {
     e.preventDefault();
     if (edit) {
         let updateData = {...findData,text:newtask.value}
-        let indexforedit = json.findIndex(ele=>ele.id == findData.id);
-        json.splice(indexforedit, 1, updateData);
+
+        json.splice(jsonindex, 1, updateData);
         localStorage.setItem('todos', JSON.stringify(json));
         edit = false;
         document.querySelector('button').innerHTML = "Add";
@@ -58,12 +59,12 @@ function ondelete(i) {
     let jsonindex = json.findIndex(ele => ele.id == i)
     json.splice(jsonindex, 1);
     localStorage.setItem('todos', JSON.stringify(json));
-    showTodoitems()
+    showTodoitems();
 
 }
 
 function onEdit(i) {
-    let jsonindex = json.findIndex(ele => ele.id == i)
+     jsonindex = json.findIndex(ele => ele.id == i)
     newtask.value = json[jsonindex].text;
     edit = true
     document.querySelector('button').innerHTML = "Edit";
