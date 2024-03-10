@@ -56,7 +56,6 @@ document.querySelector('button').addEventListener('click', (e) => {
 
 function ondelete(i) {
     let jsonindex = json.findIndex(ele => ele.id == i)
-
     json.splice(jsonindex, 1);
     localStorage.setItem('todos', JSON.stringify(json));
     showTodoitems()
