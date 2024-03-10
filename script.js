@@ -6,7 +6,7 @@ let json = JSON.parse(localStorage.getItem('todos'));
 // console.log(json);
 
 let index = 0;
-let jsonindex = null;
+let jsonindex = null; // declared as index of json
 let str = ``;
 let findData;
 let edit = false;
@@ -68,6 +68,5 @@ function onEdit(i) {
     edit = true
     document.querySelector('button').innerHTML = "Edit";
     findData = json.find(ele=>ele.text == newtask.value);
-}
-
+};
 
