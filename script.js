@@ -60,7 +60,6 @@ function ondelete(i) {
     json.splice(jsonindex, 1);
     localStorage.setItem('todos', JSON.stringify(json));
     showTodoitems();
-
 }
 
 function onEdit(i) {
