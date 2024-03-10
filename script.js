@@ -28,15 +28,10 @@ else {
 document.querySelector('button').addEventListener('click', (e) => {
     e.preventDefault();
     if (edit) {
-         
-        console.log(findData);
         let updateData = {...findData,text:newtask.value}
         let indexforedit = json.findIndex(ele=>ele.id == findData.id);
-        console.log(indexforedit);
-        
         json.splice(indexforedit, 1, updateData);
         localStorage.setItem('todos', JSON.stringify(json));
-        showTodoitems();
         edit = false;
         document.querySelector('button').innerHTML = "Add";
     }
@@ -53,11 +48,8 @@ document.querySelector('button').addEventListener('click', (e) => {
             json.push({ id: index, text: newtask.value })
             localStorage.setItem("todos", JSON.stringify(json))
         }
-        showTodoitems();
     }
-    
-
-    
+    showTodoitems();
     newtask.value = "";
 });
 
